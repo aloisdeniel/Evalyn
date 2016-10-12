@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ED07E95-78C6-426F-81B8-84A4CE28A2E7}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Evalyn</RootNamespace>
+    <AssemblyName>Evalyn</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Interpreter.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Walkers\Expressions\BinaryWalker.cs" />
+    <Compile Include="Walkers\Expressions\ConstantWalker.cs" />
+    <Compile Include="Walkers\Expressions\ExpressionWalker.cs" />
+    <Compile Include="Walkers\Expressions\ObjectCreatingWalker.cs" />
+    <Compile Include="Walkers\Expressions\SourceWalker.cs" />
+    <Compile Include="Walkers\Expressions\UnaryWalker.cs" />
+    <Compile Include="Walkers\Statements\IfStatementWalker.cs" />
+    <Compile Include="Walkers\Statements\StatementWalker.cs" />
+    <Compile Include="Walkers\Statements\VariableDeclarationStatementWalker.cs" />
+    <Compile Include="Walkers\WalkerBase.cs" />
+    <Compile Include="Entities\EvalClass.cs" />
+    <Compile Include="Entities\EvalMethod.cs" />
+    <Compile Include="Entities\EvalAssembly.cs" />
+    <Compile Include="Entities\EvalInstance.cs" />
+    <Compile Include="Walkers\Assemblies\ClassWalker.cs" />
+    <Compile Include="Walkers\Assemblies\MethodWalker.cs" />
+    <Compile Include="Walkers\FileWalker.cs" />
+    <Compile Include="Walkers\Statements\BlockWalker.cs" />
+    <Compile Include="Walkers\Statements\WhileStatementWalker.cs" />
+    <Compile Include="Walkers\Expressions\InvocationWalker.cs" />
+    <Compile Include="Walkers\Expressions\LamdaWalker.cs" />
+    <Compile Include="Walkers\Statements\TryCatchWalker.cs" />
+    <Compile Include="Entities\EvalField.cs" />
+    <Compile Include="Entities\EvalParameter.cs" />
+    <Compile Include="Entities\EvalType.cs" />
+    <Compile Include="Walkers\Statements\SwitchWalker.cs" />
+    <Compile Include="Entities\EvalProperty.cs" />
+    <Compile Include="Walkers\Assemblies\PropertyWalker.cs" />
+    <Compile Include="Walkers\Expressions\AssignmentWalker.cs" />
+    <Compile Include="Walkers\WalkerHelpers.cs" />
+    <Compile Include="Walkers\Expressions\ConditionalWalker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Walkers\" />
+    <Folder Include="Walkers\Assemblies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.37\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>..\packages\System.Reflection.Metadata.1.2.0\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.3.2\lib\portable-net45+win8\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.3.2\lib\portable-net45+win8\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>
